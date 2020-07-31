@@ -28,3 +28,11 @@ func _on_Princess_pressed():
 func _on_SecretReset_pressed():
 	Progress.reset()
 	get_tree().reload_current_scene()
+
+
+func _on_Rate_pressed():
+	if OS.get_name() == "iOS":
+		OS.shell_open("https://itunes.apple.com/us/app/todo/todo")
+	else:
+		# Assume / link to Android if not on iOS.
+		OS.shell_open("http://play.google.com/store/apps/details?id=com.sporktank.sfp")

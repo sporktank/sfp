@@ -60,7 +60,6 @@ func _travel_to(point, road):
 	var y = start.y + point[1]*steps.y
 	_player.global_position = Vector2(x, y)
 	_player_pos = point
-	_update_pulses()
 	
 	if _player_pos == [8,8]:
 		_finished = true
@@ -68,6 +67,8 @@ func _travel_to(point, road):
 			Progress.set_progress(_header.title, true, true if _tax >= 0.0 else null, true if _tax > 0.0 else null)
 			_header.update_status()
 			_success.show(_tax > 0.0)
+	
+	_update_pulses()
 
 
 func _on_Road00_pressed(road):  # Oops named Road00, not sure how to refactor at the moment.

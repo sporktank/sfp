@@ -13,6 +13,7 @@ var _goto_position = Vector2()
 var _move_count = 0
 var _coin_scene = preload("res://source/Coin.tscn")
 var _coin_refs = []
+var _last_collision = false
 
 onready var _header = $Header
 onready var _coin_grid = $Body/Center/CoinGrid
@@ -47,10 +48,13 @@ func _physics_process(delta):
 					pos_diff = pos_diff.normalized() * 64
 				#_free_coin.move_and_collide(pos_diff)
 				#_free_coin.move_and_slide(pos_diff/delta)
+				var prev = _free_coin.position
 				_free_coin.move_and_slide(pos_diff/delta*0.25)
+				var diff = _free_coin.position - prev
 				_free_coin.visible = true
-				if _free_coin.get_slide_count() > 0 and not _coin.playing:  # TODO: Maybe check velocity of collision.
+				if _free_coin.get_slide_count() > 0 and not _coin.playing and diff.length() > -1 and not _last_collision:
 					_coin.play()
+				_last_collision = _free_coin.get_slide_count() > 0
 
 
 func _update_moves():
@@ -154,7 +158,7 @@ func _coin_released(x, y, coin):
 		_coin_refs[min_coin_xy[0]][min_coin_xy[1]].set_state_present()
 		_set_all_unavailable()
 		_free_coin.visible = false
-		if min_dist != INF:
+		if min_dist != INF and [x,y] != min_coin_xy:
 			_move_count += 1
 			_update_moves()
 		if _check_solved():
