@@ -1,0 +1,132 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/font1.tres" type="DynamicFont" id=1]
+[ext_resource path="res://source/Footer.gd" type="Script" id=2]
+[ext_resource path="res://source/button-normal.tres" type="StyleBox" id=3]
+[ext_resource path="res://assets/click.ogg" type="AudioStream" id=4]
+
+[sub_resource type="Theme" id=1]
+default_font = ExtResource( 1 )
+Button/colors/font_color = Color( 0.964706, 0.968627, 0.921569, 1 )
+Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+Button/colors/font_color_hover = Color( 0.964706, 0.968627, 0.921569, 1 )
+Button/colors/font_color_pressed = Color( 0.964706, 0.968627, 0.921569, 1 )
+Button/constants/hseparation = 2
+Button/fonts/font = null
+Button/styles/disabled = null
+Button/styles/focus = null
+Button/styles/hover = null
+Button/styles/normal = null
+Button/styles/pressed = null
+
+[node name="Footer" type="Control"]
+anchor_top = 0.85
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.513726, 0.615686, 1, 1 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": "	"
+}
+
+[node name="Center" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_top = 7.62939e-06
+margin_bottom = 7.62939e-06
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Restart" type="Button" parent="Center"]
+margin_left = -270.0
+margin_top = -52.0
+margin_right = -15.0
+margin_bottom = -7.0
+theme = SubResource( 1 )
+custom_styles/hover = ExtResource( 3 )
+custom_styles/pressed = ExtResource( 3 )
+custom_styles/focus = ExtResource( 3 )
+custom_styles/disabled = ExtResource( 3 )
+custom_styles/normal = ExtResource( 3 )
+custom_colors/font_color = Color( 0.101961, 0.0352941, 0.0509804, 1 )
+custom_colors/font_color_hover = Color( 0.101961, 0.0352941, 0.0509804, 1 )
+custom_colors/font_color_pressed = Color( 0.101961, 0.0352941, 0.0509804, 1 )
+text = "restart"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Back" type="Button" parent="Center"]
+margin_left = -270.0
+margin_top = 8.0
+margin_right = -15.0
+margin_bottom = 53.0
+theme = SubResource( 1 )
+custom_styles/hover = ExtResource( 3 )
+custom_styles/pressed = ExtResource( 3 )
+custom_styles/focus = ExtResource( 3 )
+custom_styles/disabled = ExtResource( 3 )
+custom_styles/normal = ExtResource( 3 )
+custom_colors/font_color = Color( 0.101961, 0.0352941, 0.0509804, 1 )
+custom_colors/font_color_hover = Color( 0.101961, 0.0352941, 0.0509804, 1 )
+custom_colors/font_color_pressed = Color( 0.101961, 0.0352941, 0.0509804, 1 )
+text = "back to menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Instructions" type="Button" parent="Center"]
+margin_left = 15.0
+margin_top = -52.0
+margin_right = 270.0
+margin_bottom = -7.0
+theme = SubResource( 1 )
+custom_styles/hover = ExtResource( 3 )
+custom_styles/pressed = ExtResource( 3 )
+custom_styles/focus = ExtResource( 3 )
+custom_styles/disabled = ExtResource( 3 )
+custom_styles/normal = ExtResource( 3 )
+custom_colors/font_color = Color( 0.101961, 0.0352941, 0.0509804, 1 )
+custom_colors/font_color_hover = Color( 0.101961, 0.0352941, 0.0509804, 1 )
+custom_colors/font_color_pressed = Color( 0.101961, 0.0352941, 0.0509804, 1 )
+text = "instructions"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Credits" type="Button" parent="Center"]
+margin_left = 15.0
+margin_top = 8.0
+margin_right = 270.0
+margin_bottom = 53.0
+theme = SubResource( 1 )
+custom_styles/hover = ExtResource( 3 )
+custom_styles/pressed = ExtResource( 3 )
+custom_styles/focus = ExtResource( 3 )
+custom_styles/disabled = ExtResource( 3 )
+custom_styles/normal = ExtResource( 3 )
+custom_colors/font_color = Color( 0.101961, 0.0352941, 0.0509804, 1 )
+custom_colors/font_color_hover = Color( 0.101961, 0.0352941, 0.0509804, 1 )
+custom_colors/font_color_pressed = Color( 0.101961, 0.0352941, 0.0509804, 1 )
+text = "credits"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+[connection signal="pressed" from="Center/Restart" to="." method="_on_Restart_pressed"]
+[connection signal="pressed" from="Center/Back" to="." method="_on_Back_pressed"]
+[connection signal="pressed" from="Center/Instructions" to="." method="_on_Instructions_pressed"]
+[connection signal="pressed" from="Center/Credits" to="." method="_on_Credits_pressed"]

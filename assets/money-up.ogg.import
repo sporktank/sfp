@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/money-up.ogg-43f99b3355e8cfabed5ce18c210099e1.oggstr"
+
+[deps]
+
+source_file="res://assets/money-up.ogg"
+dest_files=[ "res://.import/money-up.ogg-43f99b3355e8cfabed5ce18c210099e1.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

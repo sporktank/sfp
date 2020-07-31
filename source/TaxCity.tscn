@@ -1,0 +1,426 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://assets/bank.png" type="Texture" id=1]
+[ext_resource path="res://assets/hospital.png" type="Texture" id=2]
+[ext_resource path="res://source/Footer.tscn" type="PackedScene" id=3]
+[ext_resource path="res://source/Header.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/house.png" type="Texture" id=5]
+[ext_resource path="res://source/Road.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/department.png" type="Texture" id=7]
+[ext_resource path="res://assets/tax-payer.png" type="Texture" id=8]
+[ext_resource path="res://assets/pillars.png" type="Texture" id=9]
+[ext_resource path="res://source/TaxCity.gd" type="Script" id=10]
+[ext_resource path="res://assets/compass.png" type="Texture" id=11]
+[ext_resource path="res://assets/exit.png" type="Texture" id=12]
+[ext_resource path="res://assets/font1.ttf" type="DynamicFontData" id=13]
+[ext_resource path="res://source/Success.tscn" type="PackedScene" id=14]
+[ext_resource path="res://source/Instructions.tscn" type="PackedScene" id=15]
+[ext_resource path="res://assets/money-up.ogg" type="AudioStream" id=16]
+[ext_resource path="res://assets/money-down.ogg" type="AudioStream" id=17]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 7 ), ExtResource( 2 ), ExtResource( 5 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
+font_data = ExtResource( 13 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 40
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 13 )
+
+[node name="TaxCity" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Header" parent="." instance=ExtResource( 4 )]
+title = "TAX CITY"
+
+[node name="Footer" parent="." instance=ExtResource( 3 )]
+credits_link = "https://www.youtube.com/watch?v=6sBB-gRhfjE"
+
+[node name="Body" type="Control" parent="."]
+anchor_top = 0.15
+anchor_right = 1.0
+anchor_bottom = 0.85
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="ColorRect" parent="Body"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.964706, 0.968627, 0.921569, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Center" type="Control" parent="Body"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_top = 20.0
+margin_bottom = 20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Blocks" type="Node2D" parent="Body/Center"]
+
+[node name="Block00" type="AnimatedSprite" parent="Body/Center/Blocks"]
+position = Vector2( -180, -140 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 1 )
+frame = 3
+
+[node name="Block01" type="AnimatedSprite" parent="Body/Center/Blocks"]
+position = Vector2( -180, -20 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 1 )
+frame = 3
+
+[node name="Block02" type="AnimatedSprite" parent="Body/Center/Blocks"]
+position = Vector2( -180, 100 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 1 )
+frame = 4
+
+[node name="Block03" type="AnimatedSprite" parent="Body/Center/Blocks"]
+position = Vector2( -180, 220 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 1 )
+frame = 3
+
+[node name="Block10" type="AnimatedSprite" parent="Body/Center/Blocks"]
+position = Vector2( -60, -140 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 1 )
+frame = 3
+
+[node name="Block11" type="AnimatedSprite" parent="Body/Center/Blocks"]
+position = Vector2( -60, -20 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 1 )
+
+[node name="Block12" type="AnimatedSprite" parent="Body/Center/Blocks"]
+position = Vector2( -60, 100 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 1 )
+frame = 1
+
+[node name="Block13" type="AnimatedSprite" parent="Body/Center/Blocks"]
+position = Vector2( -60, 220 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 1 )
+frame = 1
+
+[node name="Block20" type="AnimatedSprite" parent="Body/Center/Blocks"]
+position = Vector2( 60, -140 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 1 )
+frame = 3
+
+[node name="Block21" type="AnimatedSprite" parent="Body/Center/Blocks"]
+position = Vector2( 60, -20 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 1 )
+frame = 4
+
+[node name="Block22" type="AnimatedSprite" parent="Body/Center/Blocks"]
+position = Vector2( 60, 100 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 1 )
+frame = 1
+
+[node name="Block23" type="AnimatedSprite" parent="Body/Center/Blocks"]
+position = Vector2( 60, 220 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 1 )
+frame = 3
+
+[node name="Block30" type="AnimatedSprite" parent="Body/Center/Blocks"]
+position = Vector2( 180, -140 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 1 )
+
+[node name="Block31" type="AnimatedSprite" parent="Body/Center/Blocks"]
+position = Vector2( 180, -20 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 1 )
+frame = 4
+
+[node name="Block32" type="AnimatedSprite" parent="Body/Center/Blocks"]
+position = Vector2( 180, 100 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 1 )
+frame = 2
+
+[node name="Block33" type="AnimatedSprite" parent="Body/Center/Blocks"]
+position = Vector2( 180, 220 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 1 )
+frame = 3
+
+[node name="Roads" type="Node2D" parent="Body/Center"]
+
+[node name="Road10" parent="Body/Center/Roads" instance=ExtResource( 6 )]
+position = Vector2( -180, -200 )
+
+[node name="Road30" parent="Body/Center/Roads" instance=ExtResource( 6 )]
+position = Vector2( -60, -200 )
+
+[node name="Road50" parent="Body/Center/Roads" instance=ExtResource( 6 )]
+position = Vector2( 60, -200 )
+
+[node name="Road70" parent="Body/Center/Roads" instance=ExtResource( 6 )]
+position = Vector2( 180, -200 )
+
+[node name="Road12" parent="Body/Center/Roads" instance=ExtResource( 6 )]
+position = Vector2( -180, -80 )
+
+[node name="Road32" parent="Body/Center/Roads" instance=ExtResource( 6 )]
+position = Vector2( -60, -80 )
+
+[node name="Road52" parent="Body/Center/Roads" instance=ExtResource( 6 )]
+position = Vector2( 60, -80 )
+
+[node name="Road72" parent="Body/Center/Roads" instance=ExtResource( 6 )]
+position = Vector2( 180, -80 )
+
+[node name="Road14" parent="Body/Center/Roads" instance=ExtResource( 6 )]
+position = Vector2( -180, 40 )
+
+[node name="Road34" parent="Body/Center/Roads" instance=ExtResource( 6 )]
+position = Vector2( -60, 40 )
+
+[node name="Road54" parent="Body/Center/Roads" instance=ExtResource( 6 )]
+position = Vector2( 60, 40 )
+
+[node name="Road74" parent="Body/Center/Roads" instance=ExtResource( 6 )]
+position = Vector2( 180, 40 )
+
+[node name="Road16" parent="Body/Center/Roads" instance=ExtResource( 6 )]
+position = Vector2( -180, 160 )
+
+[node name="Road36" parent="Body/Center/Roads" instance=ExtResource( 6 )]
+position = Vector2( -60, 160 )
+
+[node name="Road56" parent="Body/Center/Roads" instance=ExtResource( 6 )]
+position = Vector2( 60, 160 )
+
+[node name="Road76" parent="Body/Center/Roads" instance=ExtResource( 6 )]
+position = Vector2( 180, 160 )
+
+[node name="Road18" parent="Body/Center/Roads" instance=ExtResource( 6 )]
+position = Vector2( -180, 280 )
+
+[node name="Road38" parent="Body/Center/Roads" instance=ExtResource( 6 )]
+position = Vector2( -60, 280 )
+
+[node name="Road58" parent="Body/Center/Roads" instance=ExtResource( 6 )]
+position = Vector2( 60, 280 )
+
+[node name="Road78" parent="Body/Center/Roads" instance=ExtResource( 6 )]
+position = Vector2( 180, 280 )
+
+[node name="Road41" parent="Body/Center/Roads" instance=ExtResource( 6 )]
+position = Vector2( 0, -140 )
+rotation = 1.5708
+
+[node name="Road61" parent="Body/Center/Roads" instance=ExtResource( 6 )]
+position = Vector2( 120, -140 )
+rotation = 1.5708
+
+[node name="Road81" parent="Body/Center/Roads" instance=ExtResource( 6 )]
+position = Vector2( 240, -140 )
+rotation = 1.5708
+
+[node name="Road03" parent="Body/Center/Roads" instance=ExtResource( 6 )]
+position = Vector2( -240, -20 )
+rotation = 1.5708
+
+[node name="Road23" parent="Body/Center/Roads" instance=ExtResource( 6 )]
+position = Vector2( -120, -20 )
+rotation = 1.5708
+
+[node name="Road43" parent="Body/Center/Roads" instance=ExtResource( 6 )]
+position = Vector2( 0, -20.0001 )
+rotation = 1.5708
+
+[node name="Road63" parent="Body/Center/Roads" instance=ExtResource( 6 )]
+position = Vector2( 120, -20.0001 )
+rotation = 1.5708
+
+[node name="Road83" parent="Body/Center/Roads" instance=ExtResource( 6 )]
+position = Vector2( 240, -20.0001 )
+rotation = 1.5708
+
+[node name="Road05" parent="Body/Center/Roads" instance=ExtResource( 6 )]
+position = Vector2( -240, 100 )
+rotation = 1.5708
+
+[node name="Road25" parent="Body/Center/Roads" instance=ExtResource( 6 )]
+position = Vector2( -120, 100 )
+rotation = 1.5708
+
+[node name="Road45" parent="Body/Center/Roads" instance=ExtResource( 6 )]
+position = Vector2( -3.05176e-05, 99.9999 )
+rotation = 1.5708
+
+[node name="Road65" parent="Body/Center/Roads" instance=ExtResource( 6 )]
+position = Vector2( 120, 99.9999 )
+rotation = 1.5708
+
+[node name="Road85" parent="Body/Center/Roads" instance=ExtResource( 6 )]
+position = Vector2( 240, 99.9999 )
+rotation = 1.5708
+
+[node name="Road07" parent="Body/Center/Roads" instance=ExtResource( 6 )]
+position = Vector2( -240, 220 )
+rotation = 1.5708
+
+[node name="Road27" parent="Body/Center/Roads" instance=ExtResource( 6 )]
+position = Vector2( -120, 220 )
+rotation = 1.5708
+
+[node name="Road47" parent="Body/Center/Roads" instance=ExtResource( 6 )]
+position = Vector2( -3.05176e-05, 220 )
+rotation = 1.5708
+
+[node name="Road67" parent="Body/Center/Roads" instance=ExtResource( 6 )]
+position = Vector2( 120, 220 )
+rotation = 1.5708
+
+[node name="Road87" parent="Body/Center/Roads" instance=ExtResource( 6 )]
+position = Vector2( 240, 220 )
+rotation = 1.5708
+
+[node name="Start" type="Node2D" parent="Body/Center"]
+position = Vector2( -240, -200 )
+scale = Vector2( 0.1, 0.1 )
+
+[node name="Exit" type="Sprite" parent="Body/Center"]
+position = Vector2( 240, 280 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 12 )
+
+[node name="Player" type="Sprite" parent="Body/Center"]
+position = Vector2( -240, -200 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 8 )
+
+[node name="Compass" type="Node2D" parent="Body/Center"]
+position = Vector2( 165, -285 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Body/Center/Compass"]
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 11 )
+
+[node name="Label" type="Label" parent="Body/Center/Compass"]
+margin_left = -140.0
+margin_top = -80.0
+margin_right = 140.0
+margin_bottom = 80.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.345098, 0.345098, 0.345098, 1 )
+text = "÷2
+
++20   -20
+
+×2"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tax" type="Label" parent="Body/Center"]
+margin_left = -360.0
+margin_top = -335.0
+margin_right = 40.0
+margin_bottom = -235.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+text = "$0.00"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Success" parent="Body/Center" instance=ExtResource( 14 )]
+
+[node name="Instructions" parent="Body/Center" instance=ExtResource( 15 )]
+visible = false
+z_index = 2
+instruction_text = "You have no money, and need to pass through this city with a strange tax system.
+
+Moving right costs you $20, moving down doubles your tax bill. But moving up halves your bill, and moving left gains you $20!
+
+Also, you may not travel on a road more than once.
+
+Can you escape the city without owing money? Can you beat the system and make some money?"
+
+[node name="MoneyUp" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 16 )
+volume_db = -10.0
+
+[node name="MoneyDown" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 17 )
+volume_db = -10.0
+[connection signal="instructions_pressed" from="Footer" to="." method="_on_Footer_instructions_pressed"]
+[connection signal="pressed" from="Body/Center/Roads/Road10" to="." method="_on_Road00_pressed"]
+[connection signal="pressed" from="Body/Center/Roads/Road30" to="." method="_on_Road00_pressed"]
+[connection signal="pressed" from="Body/Center/Roads/Road50" to="." method="_on_Road00_pressed"]
+[connection signal="pressed" from="Body/Center/Roads/Road70" to="." method="_on_Road00_pressed"]
+[connection signal="pressed" from="Body/Center/Roads/Road12" to="." method="_on_Road00_pressed"]
+[connection signal="pressed" from="Body/Center/Roads/Road32" to="." method="_on_Road00_pressed"]
+[connection signal="pressed" from="Body/Center/Roads/Road52" to="." method="_on_Road00_pressed"]
+[connection signal="pressed" from="Body/Center/Roads/Road72" to="." method="_on_Road00_pressed"]
+[connection signal="pressed" from="Body/Center/Roads/Road14" to="." method="_on_Road00_pressed"]
+[connection signal="pressed" from="Body/Center/Roads/Road34" to="." method="_on_Road00_pressed"]
+[connection signal="pressed" from="Body/Center/Roads/Road54" to="." method="_on_Road00_pressed"]
+[connection signal="pressed" from="Body/Center/Roads/Road74" to="." method="_on_Road00_pressed"]
+[connection signal="pressed" from="Body/Center/Roads/Road16" to="." method="_on_Road00_pressed"]
+[connection signal="pressed" from="Body/Center/Roads/Road36" to="." method="_on_Road00_pressed"]
+[connection signal="pressed" from="Body/Center/Roads/Road56" to="." method="_on_Road00_pressed"]
+[connection signal="pressed" from="Body/Center/Roads/Road76" to="." method="_on_Road00_pressed"]
+[connection signal="pressed" from="Body/Center/Roads/Road18" to="." method="_on_Road00_pressed"]
+[connection signal="pressed" from="Body/Center/Roads/Road38" to="." method="_on_Road00_pressed"]
+[connection signal="pressed" from="Body/Center/Roads/Road58" to="." method="_on_Road00_pressed"]
+[connection signal="pressed" from="Body/Center/Roads/Road78" to="." method="_on_Road00_pressed"]
+[connection signal="pressed" from="Body/Center/Roads/Road41" to="." method="_on_Road00_pressed"]
+[connection signal="pressed" from="Body/Center/Roads/Road61" to="." method="_on_Road00_pressed"]
+[connection signal="pressed" from="Body/Center/Roads/Road81" to="." method="_on_Road00_pressed"]
+[connection signal="pressed" from="Body/Center/Roads/Road03" to="." method="_on_Road00_pressed"]
+[connection signal="pressed" from="Body/Center/Roads/Road23" to="." method="_on_Road00_pressed"]
+[connection signal="pressed" from="Body/Center/Roads/Road43" to="." method="_on_Road00_pressed"]
+[connection signal="pressed" from="Body/Center/Roads/Road63" to="." method="_on_Road00_pressed"]
+[connection signal="pressed" from="Body/Center/Roads/Road83" to="." method="_on_Road00_pressed"]
+[connection signal="pressed" from="Body/Center/Roads/Road05" to="." method="_on_Road00_pressed"]
+[connection signal="pressed" from="Body/Center/Roads/Road25" to="." method="_on_Road00_pressed"]
+[connection signal="pressed" from="Body/Center/Roads/Road45" to="." method="_on_Road00_pressed"]
+[connection signal="pressed" from="Body/Center/Roads/Road65" to="." method="_on_Road00_pressed"]
+[connection signal="pressed" from="Body/Center/Roads/Road85" to="." method="_on_Road00_pressed"]
+[connection signal="pressed" from="Body/Center/Roads/Road07" to="." method="_on_Road00_pressed"]
+[connection signal="pressed" from="Body/Center/Roads/Road27" to="." method="_on_Road00_pressed"]
+[connection signal="pressed" from="Body/Center/Roads/Road47" to="." method="_on_Road00_pressed"]
+[connection signal="pressed" from="Body/Center/Roads/Road67" to="." method="_on_Road00_pressed"]
+[connection signal="pressed" from="Body/Center/Roads/Road87" to="." method="_on_Road00_pressed"]

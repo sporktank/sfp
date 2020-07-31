@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/princess.png" type="Texture" id=1]
+[ext_resource path="res://assets/door.png" type="Texture" id=2]
+[ext_resource path="res://source/Floor.gd" type="Script" id=3]
+[ext_resource path="res://assets/door-open.ogg" type="AudioStream" id=4]
+[ext_resource path="res://assets/door-close.ogg" type="AudioStream" id=5]
+
+[node name="Floor" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="DoorPivot" type="Node2D" parent="."]
+position = Vector2( -55, 0 )
+
+[node name="Door" type="Sprite" parent="DoorPivot"]
+position = Vector2( 15, 0 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 2 )
+
+[node name="Princess" type="Sprite" parent="."]
+visible = false
+position = Vector2( 22, 0 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 1 )
+
+[node name="WallsPivot" type="Node2D" parent="."]
+position = Vector2( 60, 0 )
+
+[node name="Walls" type="ColorRect" parent="WallsPivot"]
+margin_left = -75.0
+margin_top = -25.0
+margin_bottom = 25.0
+color = Color( 0.168627, 0.168627, 0.168627, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = -60.0
+margin_top = -20.0
+margin_right = 60.0
+margin_bottom = 20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DoorOpen" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -6.4
+
+[node name="DoorClose" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -6.4
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

@@ -16,16 +16,25 @@ _global_script_class_icons={
 [application]
 
 config/name="Sporko's Favourite Puzzles"
-run/main_scene="res://source/Splash.tscn"
+run/main_scene="res://source/Menu.tscn"
+boot_splash/image="res://black.png"
+boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://icon.png"
 config/windows_native_icon="res://icons/desktop-icon.ico"
+
+[autoload]
+
+Progress="*res://source/Progress.gd"
 
 [display]
 
 window/size/width=600
 window/size/height=1000
-window/stretch/mode="viewport"
-window/stretch/aspect="keep"
+window/size/test_width=600
+window/size/test_height=1000
+window/handheld/orientation="portrait"
+window/stretch/mode="2d"
+window/stretch/aspect="expand"
 
 [rendering]
 
