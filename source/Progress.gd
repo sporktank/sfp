@@ -59,12 +59,12 @@ func check_first_time(title, instructions):
 	set_progress(title, true)
 
 # TEMP !!
-var _count = 0
-func _process(delta):
-	if Input.is_action_just_pressed("ui_down"):
-		_count += 1
-		get_viewport().set_clear_mode(Viewport.CLEAR_MODE_ONLY_NEXT_FRAME)
-		yield(VisualServer, "frame_post_draw")
-		var img = get_viewport().get_texture().get_data()
-		img.flip_y()
-		img.save_png("user://screenshot" + str(_count) + ".png")
+#var _count = 0
+#func _process(delta):
+#	if Input.is_action_just_pressed("ui_down"):
+#		_count += 1
+#		get_viewport().set_clear_mode(Viewport.CLEAR_MODE_ONLY_NEXT_FRAME)
+#		yield(VisualServer, "frame_post_draw")
+#		var img = get_viewport().get_texture().get_data()
+#		img.flip_y()
+#		img.save_png("user://screenshot" + str(_count) + ".png")
