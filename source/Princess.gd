@@ -141,6 +141,7 @@ func _on_Floor_pressed(floor_):
 		_pending_floors.append(floor_)
 		return
 	var floor_num = int(floor_.name.substr(5, -1))
+	#prints(floor_num, _princess_path, _princess_floor, _backup_path, _backup_floor)
 	_history.append(floor_num)
 	_opening_door = true
 	if _princess_floor == null:
@@ -162,17 +163,19 @@ func _on_Floor_pressed(floor_):
 				for p in paths:
 					if p[-1] != _princess_floor:
 						_backup_path = p
-						_backup_floor = p[-1]
+						_backup_floor = null
 						break
 			print("Backup path: ", _backup_path)
 	else:
 		if floor_num == _princess_floor and _backup_path != null:
 			_princess_path = _backup_path
-			_princess_floor = _backup_floor
+			_princess_floor = _backup_path[-1]
 			_backup_path = null
-		if floor_num == _princess_floor and _backup_floor != null:
+		elif floor_num == _princess_floor and _backup_floor != null:
 			_princess_path[-1] = _backup_floor
 			_princess_floor = _backup_floor
+			_backup_floor = null
+		if floor_num == _backup_floor:
 			_backup_floor = null
 		if floor_num == _princess_floor:
 			yield(_move_prince(floor_num), "completed")
@@ -188,8 +191,10 @@ func _on_Floor_pressed(floor_):
 			_night_num += 1
 			if _princess_floor == 1:
 				_princess_floor += 1
+				_backup_floor = null
 			elif _princess_floor == NUM_FLOORS:
 				_princess_floor -= 1
+				_backup_floor = null
 			else:
 				var diff = 2*(randi() % 2) - 1
 				_backup_floor = _princess_floor - diff
